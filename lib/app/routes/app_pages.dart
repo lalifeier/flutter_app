@@ -10,13 +10,17 @@ class AppPages {
 
   static final pages = [
     GetPage(
+      name: AppRoutes.initial,
+      page: () => const SplashPage(),
+    ),
+    GetPage(
       name: AppRoutes.home,
       page: () => const HomePage(),
       binding: HomeBinding(),
     ),
-    GetPage(
-      name: AppRoutes.initial,
-      page: () => const SplashPage(),
-    ),
+    // GetPage(
+    //   name: AppRoutes.login,
+    //   page: () => const LoginPage(),
+    // ),
   ];
 }

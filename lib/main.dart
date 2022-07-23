@@ -3,11 +3,13 @@ import 'package:flutter_app/app/locales/messages.dart';
 import 'package:flutter_app/app/routes/app_pages.dart';
 import 'package:flutter_app/app/themes/themes.dart';
 import 'package:flutter_app/app/utils/env.dart';
+// import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/route_manager.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await Environment.load();
 
