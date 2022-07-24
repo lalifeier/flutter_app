@@ -23,6 +23,11 @@ class Themes {
     // textTheme: GoogleFonts.sourceSansProTextTheme(),
   );
 
+  static final deepPurple = ThemeData(
+    primarySwatch: Colors.deepPurple,
+    // textTheme: GoogleFonts.sourceSansProTextTheme(),
+  );
+
   // changeTheme() {
   //   Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
   //   // Get.changeTheme(ThemeData.dark());

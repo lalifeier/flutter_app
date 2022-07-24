@@ -8,7 +8,7 @@ class SplashPage extends GetWidget<SplashController> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offNamed(AppRoutes.home);
+      Get.offNamed(AppRoutes.welcome);
     });
 
     return Stack(
