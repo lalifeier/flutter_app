@@ -1,5 +1,6 @@
-import 'package:flutter_app/app/data/provider/home_provider.dart';
 import 'package:get/get.dart';
+
+import '../../data/provider/home_provider.dart';
 
 class HomeController extends GetxController {
   final HomeProvider? provider;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/pages/welcome/welcome_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import 'welcome_controller.dart';
 
 class WelcomePage extends GetWidget<WelcomeController> {
   const WelcomePage({Key? key}) : super(key: key);

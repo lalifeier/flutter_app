@@ -21,6 +21,10 @@ format-analyze:
 	flutter format --dry-run lib/
 	flutter analyze
 
+# json model
+json-model:
+	flutter packages pub run json_model --src=./jsons  --dist=lib/src/models
+
 # run dev
 run-dev:
 	flutter run --flavor development --dart-define=FLAVOR=development --target lib/main.dart

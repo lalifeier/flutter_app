@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_app/app/utils/http/http.dart';
+
+import '../http.dart';
 
 class TokenInterceptors extends Interceptor {
   @override

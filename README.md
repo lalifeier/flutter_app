@@ -7,3 +7,7 @@ A new Flutter project.
 ```shell
 curl -sL https://firebase.tools | bash
 ```
+
+## json2dart
+
+- [json2dart](https://caijinglong.github.io/json2dart)

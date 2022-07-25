@@ -1,11 +1,12 @@
-import 'package:flutter_app/app/pages/home/home_binding.dart';
-import 'package:flutter_app/app/pages/home/home_page.dart';
-import 'package:flutter_app/app/pages/login/login_binding.dart';
-import 'package:flutter_app/app/pages/login/login_page.dart';
-import 'package:flutter_app/app/pages/splash/splash_page.dart';
-import 'package:flutter_app/app/pages/welcome/welcome_binding.dart';
-import 'package:flutter_app/app/pages/welcome/welcome_page.dart';
 import 'package:get/get.dart';
+
+import '../pages/home/home_binding.dart';
+import '../pages/home/home_page.dart';
+import '../pages/login/login_binding.dart';
+import '../pages/login/login_page.dart';
+import '../pages/splash/splash_page.dart';
+import '../pages/welcome/welcome_binding.dart';
+import '../pages/welcome/welcome_page.dart';
 
 part './app_routes.dart';
 

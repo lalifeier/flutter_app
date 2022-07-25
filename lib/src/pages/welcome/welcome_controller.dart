@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import '../../../app/data/provider/welcome_provider.dart';
+
+import '../../data/provider/welcome_provider.dart';
 
 class WelcomeController extends GetxController {
   final WelcomeProvider? provider;

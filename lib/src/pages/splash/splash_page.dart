@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/pages/splash/splash_controller.dart';
-import 'package:flutter_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
+
+import '../..//routes/app_pages.dart';
+import 'splash_controller.dart';
 
 class SplashPage extends GetWidget<SplashController> {
   const SplashPage({Key? key}) : super(key: key);

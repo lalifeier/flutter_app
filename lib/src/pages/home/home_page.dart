@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/pages/home/home_controller.dart';
 import 'package:get/get.dart';
+
+import 'home_controller.dart';
 
 class HomePage extends GetWidget<HomeController> {
   const HomePage({Key? key}) : super(key: key);

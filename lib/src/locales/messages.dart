@@ -1,5 +1,6 @@
-import 'package:flutter_app/app/locales/lang/en_us.dart';
 import 'package:get/get.dart';
+
+import 'lang/en_us.dart';
 
 class Messages extends Translations {
   @override

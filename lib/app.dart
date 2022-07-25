@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/locales/messages.dart';
-import 'package:flutter_app/app/routes/app_pages.dart';
 import 'package:get/route_manager.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'app/constants/constants.dart';
+import 'src/constants/constants.dart';
+import 'src/locales/messages.dart';
+import 'src/routes/app_pages.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
