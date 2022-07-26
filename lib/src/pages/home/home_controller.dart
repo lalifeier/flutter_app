@@ -6,7 +6,10 @@ class HomeController extends GetxController {
   final HomeProvider? provider;
   HomeController({this.provider});
 
-  final _text = 'Home'.obs;
-  set text(text) => _text.value = text;
-  get text => _text.value;
+  int selectedIndex = 1;
+
+  void onItemTapped(int index) {
+    selectedIndex = index + 1;
+    update();
+  }
 }

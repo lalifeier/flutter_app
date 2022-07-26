@@ -8,7 +8,7 @@ import '../pages/splash/splash_page.dart';
 import '../pages/welcome/welcome_binding.dart';
 import '../pages/welcome/welcome_page.dart';
 
-part './app_routes.dart';
+part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
