@@ -1,7 +1,8 @@
-part of './app_pages.dart';
+part of 'app_pages.dart';
 
-class AppRoutes {
+abstract class AppRoutes {
   AppRoutes._();
+
   static const initial = '/';
   static const welcome = '/welcome';
   static const login = '/login';

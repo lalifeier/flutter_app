@@ -14,6 +14,8 @@ void main() async {
 
   await Environment.load();
 
+  // await DenpendencyInjection.init();
+
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );

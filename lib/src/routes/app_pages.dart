@@ -1,12 +1,9 @@
 import 'package:get/get.dart';
 
-import '../pages/home/home_binding.dart';
-import '../pages/home/home_page.dart';
-import '../pages/login/login_binding.dart';
-import '../pages/login/login_page.dart';
-import '../pages/splash/splash_page.dart';
-import '../pages/welcome/welcome_binding.dart';
-import '../pages/welcome/welcome_page.dart';
+import '../pages/home/home.dart';
+import '../pages/login/login.dart';
+import '../pages/splash/splash.dart';
+import '../pages/welcome/welcome.dart';
 
 part 'app_routes.dart';
 
@@ -17,6 +14,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.initial,
       page: () => const SplashPage(),
+      binding: SplashBinding(),
     ),
     GetPage(
       name: AppRoutes.welcome,
