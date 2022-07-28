@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'src/bindings/initial_binding.dart';
 import 'src/constants/constants.dart';
 import 'src/locales/messages.dart';
 import 'src/routes/app_pages.dart';
@@ -31,7 +32,8 @@ class App extends StatelessWidget {
           ),
           // ),
           // unknownRoute: GetPage(name: '/notfound', page: () => UnknownRoutePage()),
-          initialRoute: AppRoutes.SPLASH,
+          initialRoute: AppPages.INITIAL,
+          initialBinding: InitialBinding(),
           getPages: AppPages.pages,
           theme: AppTheme.lightTheme,
           translations: Messages(),
