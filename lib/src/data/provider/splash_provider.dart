@@ -1,3 +1,0 @@
-class SplashProvider {
-  SplashProvider();
-}
