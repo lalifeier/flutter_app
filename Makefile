@@ -27,7 +27,7 @@ json-model:
 
 # run dev
 run-dev:
-	flutter run --flavor development --dart-define=FLAVOR=development --target lib/main.dart
+	flutter run  --dart-define=APP_ENV=development --target lib/main.dart
 
 # run prod
 run-prod:
@@ -38,7 +38,7 @@ clean:
 	flutter packages pub run build_runner clean
 
 # build_runner build
-build:
+build_runner:
 	flutter packages pub run build_runner build --delete-conflicting-outputs
 
 # build android dev

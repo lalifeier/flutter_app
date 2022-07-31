@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import '../environment.dart';
 import 'http.dart';
 import 'http_config.dart';
 import 'http_parse.dart';
@@ -191,7 +192,7 @@ class HttpClient {
 }
 
 BaseOptions options = BaseOptions(
-  baseUrl: '',
+  baseUrl: Environment.apiBaseUrl,
   connectTimeout: Duration.millisecondsPerMinute,
   sendTimeout: Duration.millisecondsPerMinute,
   receiveTimeout: Duration.millisecondsPerMinute,

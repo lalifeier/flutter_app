@@ -1,14 +1,13 @@
+import 'package:flutter_app/src/data/local/hive/hive_manage.dart';
+import 'package:flutter_app/src/data/local/hive/hive_manage_impl.dart';
 import 'package:get/get.dart';
-
-import '../data/local/preference/preference_manager.dart';
-import '../data/local/preference/preference_manager_impl.dart';
 
 class LocalSourceBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<PreferenceManager>(
-      () => PreferenceManagerImpl(),
-      tag: (PreferenceManager).toString(),
+    Get.lazyPut<HiveManage>(
+      () => HiveManageImpl(),
+      tag: (HiveManage).toString(),
       fenix: true,
     );
   }

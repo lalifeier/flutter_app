@@ -7,23 +7,26 @@ class SplashPage extends GetWidget<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Center(
-          child: FlutterLogo(
-            size: Get.size.width * 0.4,
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            margin: EdgeInsets.only(
-              bottom: Get.context!.mediaQueryPadding.bottom + 20,
+    return Scaffold(
+      // backgroundColor: AppColors.lightPrimaryColor,
+      body: Stack(
+        children: [
+          const Center(
+            child: FlutterLogo(
+              size: 64,
             ),
-            child: const CircularProgressIndicator(),
           ),
-        )
-      ],
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: const EdgeInsets.only(
+                bottom: 30,
+              ),
+              child: const CircularProgressIndicator(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
