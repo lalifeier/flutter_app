@@ -43,11 +43,11 @@ build_runner:
 
 # build android dev
 build-android-dev:
-	flutter build apk --flavor development --dart-define=FLAVOR=development --target lib/main.dart
+	flutter build apk --dart-define=APP_ENV=development --target lib/main.dart
 
 # build android prod
 build-android-prod:
-	flutter build apk --release --flavor production --dart-define=FLAVOR=production --target lib/main.dart
+	flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/flutter-apk --split-per-abi --dart-define=APP_ENV=production --target lib/main.dart
 
 # build ios dev
 build-ios-dev:
