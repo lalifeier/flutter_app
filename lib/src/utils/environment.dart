@@ -36,5 +36,5 @@ class Environment {
 
   static String apiBaseUrl = dotenv.get('API_BASE_URL');
 
-  static String channel = const String.fromEnvironment('CHANNEL');
+  static String channel = const String.fromEnvironment('APP_CHANNEL');
 }
