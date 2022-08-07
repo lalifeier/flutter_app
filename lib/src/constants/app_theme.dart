@@ -8,6 +8,7 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData lightTheme = ThemeData(
+    // useMaterial3: true,
     primarySwatch: createMaterialColor(AppColors.primaryColor),
     textTheme: GoogleFonts.robotoTextTheme(),
     outlinedButtonTheme: OutlinedButtonThemeData(

@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 import '../pages/home/home.dart';
-import '../pages/index/index.dart';
 import '../pages/login/login.dart';
+import '../pages/main/main.dart';
 import '../pages/mine/mine.dart';
 import '../pages/splash/splash.dart';
 import '../pages/welcome/welcome.dart';
@@ -31,9 +31,9 @@ class AppPages {
       binding: LoginBinding(),
     ),
     GetPage(
-      name: AppRoutes.INDEX,
-      page: () => const IndexPage(),
-      binding: IndexBinding(),
+      name: AppRoutes.MAIN,
+      page: () => const MainPage(),
+      binding: MainBinding(),
     ),
     GetPage(
       name: AppRoutes.HOME,

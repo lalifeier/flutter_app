@@ -3,6 +3,7 @@
 
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -11,6 +12,7 @@ import 'src/bindings/initial_binding.dart';
 import 'src/constants/constants.dart';
 import 'src/locales/messages.dart';
 import 'src/routes/app_pages.dart';
+import 'src/services/services.dart';
 import 'src/utils/environment.dart';
 
 void main() async {
@@ -19,7 +21,9 @@ void main() async {
 
   await Environment.load();
 
-  // initServices();
+  // Hive.deleteFromDisk();
+
+  await initServices();
 
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
@@ -32,6 +36,12 @@ void main() async {
   // }, (error, stackTrace) {
   //   FirebaseCrashlytics.instance.recordError(error, stackTrace);
   // });
+
+  // if (Platform.isAndroid) {
+  //   SystemUiOverlayStyle systemUiOverlayStyle =
+  //       const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  //   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  // }
 
   runApp(const App());
 }

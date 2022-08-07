@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../home/home.dart';
 import '../mine/mine.dart';
 
-class IndexController extends GetxController {
-  IndexController();
+class MainController extends GetxController {
+  MainController();
 
   final RxInt _currentIndex = 0.obs;
 

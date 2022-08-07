@@ -1,24 +1,12 @@
-// import 'package:get/get.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
-
 import 'dart:io';
 
-// class StorageService extends GetxService {
-//   Future<SharedPreferences> init() async {
-//     return await SharedPreferences.getInstance();
-//   }
-// }
-
+import 'package:flutter_app/src/constants/constants.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
-class HiveService extends GetxService {
-  late Box<String> box;
-
-  final BOX_NAME = "default";
-
-  Future<void> init() async {
+class HiveService {
+  static Future<void> init() async {
     if (GetPlatform.isWeb) {
       await Hive.initFlutter();
     } else {
@@ -26,10 +14,17 @@ class HiveService extends GetxService {
       await Hive.initFlutter(dir.path);
     }
 
-    box = await Hive.openBox<String>(BOX_NAME);
+    _registerAdapters();
+
+    await _openBoxes();
   }
 
-  Future<void> clear() async {
-    await Hive.deleteFromDisk();
+  static void _registerAdapters() {
+    // Hive.registerAdapter(UserAdapter());
+  }
+
+  static Future _openBoxes() async {
+    await Hive.openBox(HiveConstants.DEFAULT_BOX);
+    // await Hive.openBox(HiveConstants.USER_BOX);
   }
 }

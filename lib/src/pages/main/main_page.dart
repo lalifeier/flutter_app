@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'index_controller.dart';
+import 'main_controller.dart';
 
-class IndexPage extends GetWidget<IndexController> {
-  const IndexPage({Key? key}) : super(key: key);
+class MainPage extends GetWidget<MainController> {
+  const MainPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // body: controller.pages[controller.currentIndex],
       body: PageView(
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -24,3 +25,19 @@ class IndexPage extends GetWidget<IndexController> {
     );
   }
 }
+
+
+
+// class MainWidget extends StatefulWidget {
+//   const MainWidget({Key? key}) : super(key: key);
+
+//   @override
+//   State<MainWidget> createState() => _MainWidgetState();
+// }
+
+// class _MainWidgetState extends State<MainWidget> {
+//   @override
+//   Widget build(BuildContext context) {
+
+//   }
+// }

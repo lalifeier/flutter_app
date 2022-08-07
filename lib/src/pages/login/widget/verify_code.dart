@@ -48,7 +48,10 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
             },
             child: Text(verifyStr),
           )
-        : Text(verifyStr);
+        : Container(
+            alignment: Alignment.centerRight,
+            child: Text(verifyStr),
+          );
 
     // return Text(verifyStr);
   }
