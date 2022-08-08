@@ -18,5 +18,7 @@ class HomeController extends GetxController {
     super.onReady();
 
     print(text);
+
+    // Loading.show();
   }
 }
