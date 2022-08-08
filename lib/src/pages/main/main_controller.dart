@@ -1,37 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home/home.dart';
-import '../mine/mine.dart';
-
 class MainController extends GetxController {
   MainController();
 
-  final RxInt _currentIndex = 0.obs;
+  final RxInt _currentPage = 0.obs;
+  set currentPage(value) => _currentPage.value = value;
+  int get currentPage => _currentPage.value;
 
-  int get currentIndex => _currentIndex.value;
+  late final List<String> tabTitles;
+  late final List<BottomNavigationBarItem> bottomTabs;
 
-  PageController pageController = PageController(initialPage: 0);
+  late final PageController pageController;
 
-  final List<BottomNavigationBarItem> bottomNavigationItems = [
-    const BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: '主页'),
-    const BottomNavigationBarItem(
-        icon: Icon(Icons.account_circle_outlined), label: '个人中心'),
-  ];
+  @override
+  void onInit() {
+    super.onInit();
 
-  final List<Widget> pages = [
-    const HomePage(),
-    const MinePage(),
-  ];
+    tabTitles = [
+      '主页',
+      '个人中心',
+    ];
+    bottomTabs = [
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined), label: '主页'),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_outlined), label: '个人中心'),
+    ];
 
-  void onItemTapped(int index) {
+    pageController = PageController(initialPage: currentPage);
+  }
+
+  void handlePageChanged(int index) {
+    currentPage = index;
+  }
+
+  void handleBottomNavigationBarTap(int index) {
     pageController.jumpToPage(index);
-    _currentIndex.value = index;
+    // pageController.animateToPage(
+    //   index,
+    //   duration: const Duration(milliseconds: 200),
+    //   curve: Curves.ease,
+    // );
+    // _currentPage.value = index;
   }
 
   @override
   void dispose() {
-    super.dispose();
     pageController.dispose();
+    super.dispose();
   }
 }

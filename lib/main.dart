@@ -10,7 +10,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'src/bindings/initial_binding.dart';
 import 'src/constants/constants.dart';
-import 'src/locales/messages.dart';
+import 'src/locales/translation_service.dart';
 import 'src/routes/app_pages.dart';
 import 'src/services/services.dart';
 import 'src/utils/environment.dart';
@@ -77,9 +77,9 @@ class App extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: ThemeData.dark(),
           themeMode: ThemeMode.light,
-          translations: Messages(),
-          locale: Get.deviceLocale,
-          fallbackLocale: const Locale('en', 'US'),
+          translations: TranslationService(),
+          locale: TranslationService.locale,
+          fallbackLocale: TranslationService.fallbackLocale,
           debugShowCheckedModeBanner: false,
           enableLog: true,
         ));

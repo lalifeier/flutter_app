@@ -1,9 +1,14 @@
+import 'dart:ui';
+
 import 'package:get/get.dart';
 
 import 'lang/en_US.dart';
 import 'lang/zh_CN.dart';
 
-class Messages extends Translations {
+class TranslationService extends Translations {
+  static Locale? get locale => Get.deviceLocale;
+  static const fallbackLocale = Locale('en', 'US');
+
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': en_US,

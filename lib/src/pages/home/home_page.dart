@@ -9,10 +9,10 @@ class HomePage extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('主页'),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: const Text('主页'),
+      //   centerTitle: true,
+      // ),
       body: Column(
         children: [
           _buildSwiperWidget(context),
