@@ -21,6 +21,24 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def dartEnvironmentVariables = [
+    APP_CHANNEL: 'android',
+]
+
+if (project.hasProperty('dart-defines')) {
+    println('print dart defines proerty')
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+            .split(',')
+            .collectEntries { entry ->
+                // 1.22.6 版本
+                //def pair = URLDecoder.decode(entry).split('=')
+                // 2.2 版本
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                println(pair.first()+':'+pair.last())
+                [(pair.first()): pair.last()]
+            }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -58,6 +76,15 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if(variant.buildType.name == "release"){
+                def newApkName ="app_v${defaultConfig.versionName}_${defaultConfig.versionCode}_channel_${dartEnvironmentVariables.APP_CHANNEL}.apk"
+                outputFileName = new File(newApkName)
+            }
         }
     }
 }

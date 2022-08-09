@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-import '../environment.dart';
 import 'http.dart';
 import 'http_config.dart';
 import 'http_parse.dart';
@@ -9,13 +8,10 @@ import 'http_response.dart';
 class HttpClient {
   late Http _http;
 
-  late Dio _dio;
-
   CancelToken cancelToken = CancelToken();
 
   HttpClient({BaseOptions? options, HttpConfig? httpConfig}) {
     _http = Http(options: options, httpConfig: httpConfig);
-    _dio = _http.dio;
   }
 
   Future<HttpResponse> get<T>(
@@ -118,7 +114,7 @@ class HttpClient {
     String lengthHeader = Headers.contentLengthHeader,
   }) async {
     try {
-      Response response = await _dio.download(path, savePath,
+      Response response = await _http.download(path, savePath,
           queryParameters: params,
           data: data,
           options: options,
@@ -173,7 +169,7 @@ class HttpClient {
     // }
 
     try {
-      Response response = await _dio.request(path,
+      Response response = await _http.request(path,
           queryParameters: params,
           data: data,
           options: options,
@@ -192,14 +188,16 @@ class HttpClient {
 }
 
 BaseOptions options = BaseOptions(
-  baseUrl: Environment.apiBaseUrl,
+  // baseUrl: Environment.apiBaseUrl,
   connectTimeout: Duration.millisecondsPerMinute,
   sendTimeout: Duration.millisecondsPerMinute,
   receiveTimeout: Duration.millisecondsPerMinute,
-  contentType: 'application/json',
+  // contentType: 'application/json',
 );
 
 HttpConfig httpConfig = HttpConfig(
+    baseUrl: '',
+    // proxy: 'localhost:8888',
     logInterceptor: true,
     cacheInterceptor: true,
     cookieInterceptor: true,
