@@ -34,9 +34,9 @@ class Environment {
     return value.toString();
   }
 
-  static String baseUrl = dotenv.get('BASE_URL');
-
   static String channel = const String.fromEnvironment('APP_CHANNEL');
 
   static bool get isRelease => const bool.fromEnvironment("dart.vm.product");
+
+  static String baseUrl = dotenv.get('BASE_URL');
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import '../environment.dart';
 import 'http.dart';
 import 'http_config.dart';
 import 'http_parse.dart';
@@ -188,7 +189,7 @@ class HttpClient {
 }
 
 BaseOptions options = BaseOptions(
-  // baseUrl: Environment.apiBaseUrl,
+  baseUrl: Environment.baseUrl,
   connectTimeout: Duration.millisecondsPerMinute,
   sendTimeout: Duration.millisecondsPerMinute,
   receiveTimeout: Duration.millisecondsPerMinute,
@@ -196,11 +197,12 @@ BaseOptions options = BaseOptions(
 );
 
 HttpConfig httpConfig = HttpConfig(
-    baseUrl: '',
-    // proxy: 'localhost:8888',
-    logInterceptor: true,
-    cacheInterceptor: true,
-    cookieInterceptor: true,
-    retryInterceptor: true);
+  // baseUrl: '',
+  // proxy: 'localhost:8888',
+  logInterceptor: true,
+  cacheInterceptor: true,
+  cookieInterceptor: true,
+  retryInterceptor: true,
+);
 
 final HttpClient http = HttpClient(options: options, httpConfig: httpConfig);
