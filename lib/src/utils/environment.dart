@@ -6,11 +6,11 @@ class Environment {
   static String appEnv =
       const String.fromEnvironment("APP_ENV", defaultValue: "development");
 
-  static String getFileName() {
+  static String _getFileName() {
     return '.env.$appEnv';
   }
 
-  static Future load() async => await dotenv.load(fileName: getFileName());
+  static Future load() async => await dotenv.load(fileName: _getFileName());
 
   static dynamic get(String key, {dynamic defaultValue}) {
     if (!dotenv.env.containsKey(key) && defaultValue != null) {
@@ -34,7 +34,7 @@ class Environment {
     return value.toString();
   }
 
-  static String apiBaseUrl = dotenv.get('API_BASE_URL');
+  static String baseUrl = dotenv.get('BASE_URL');
 
   static String channel = const String.fromEnvironment('APP_CHANNEL');
 

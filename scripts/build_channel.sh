@@ -1,6 +1,5 @@
 
 #!/bin/sh
 
-flutter build apk --dart-define=ANDROID_CHANNEL=$1
-# cd build/app/outputs/apk/release
-# mv *.apk
+flutter build apk --obfuscate --split-debug-info=build/app/outputs/flutter-apk --split-per-abi --dart-define=APP_CHANNEL=$1
+mv ../build/app/outputs/apk/release/*.apk ../build/app/outputs/flutter-apk
