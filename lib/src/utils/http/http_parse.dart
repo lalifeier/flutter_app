@@ -14,13 +14,16 @@ HttpResponse handleResponse(Response? response,
     return HttpResponse.failFromError();
   }
 
-  if (response.statusCode != null &&
-      response.statusCode! >= 200 &&
-      response.statusCode! < 300) {
+  if (_isRequestSuccess(response.statusCode)) {
     return httpTransformer.parse(response);
   }
+
   return HttpResponse.fail(
       errorMsg: response.statusMessage, errorCode: response.statusCode);
+}
+
+bool _isRequestSuccess(int? statusCode) {
+  return (statusCode != null && statusCode >= 200 && statusCode < 300);
 }
 
 HttpResponse handleException(Exception exception) {

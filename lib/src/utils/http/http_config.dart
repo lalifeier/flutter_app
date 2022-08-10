@@ -4,21 +4,14 @@ class HttpConfig {
   final String? baseUrl;
   final String? pem;
   final String? proxy;
+  final String? cookiesPath;
   final List<Interceptor>? interceptors;
-
-  final bool? logInterceptor;
-  final bool? cacheInterceptor;
-  final bool? cookieInterceptor;
-  final bool? retryInterceptor;
 
   HttpConfig({
     this.baseUrl,
     this.pem,
     this.proxy,
+    this.cookiesPath,
     this.interceptors,
-    this.logInterceptor,
-    this.cacheInterceptor,
-    this.cookieInterceptor,
-    this.retryInterceptor,
   });
 }

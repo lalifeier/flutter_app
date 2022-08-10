@@ -1,25 +1,54 @@
-// import 'package:dio/dio.dart';
+import 'dart:collection';
 
-// import '../http.dart';
+import 'package:dio/dio.dart';
 
-// class TokenInterceptors extends Interceptor {
-//   @override
-//   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-//     if (options.headers['refreshToken'] == null) {
-//       Http.instance.dio.lock();
-//       Dio dio = Dio();
-//       dio
-//         ..get("http://localhost:8080/getRefreshToken").then((res) {
-//           options.headers['refreshToken'] = res;
-//           handler.next(options);
-//         }).catchError((error, stackTrace) {
-//           handler.reject(error, true);
-//         }).whenComplete(() {
-//           Http.instance.dio.unlock();
-//         }); // unlock the dio
-//     } else {
-//       options.headers['refreshToken'] = options.headers['refreshToken'];
-//       handler.next(options);
-//     }
-//   }
-// }
+class TokenInterceptor extends Interceptor {
+  final Dio _dio;
+  bool isReLogin = false;
+  Queue queue = Queue();
+
+  TokenInterceptor(this._dio);
+
+  @override
+  void onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    return handler.next(options);
+  }
+
+  @override
+  void onResponse(
+    Response response,
+    ResponseInterceptorHandler handler,
+  ) async {
+    if (!_checkIfNeedRefreshToken(response)) {
+      return super.onResponse(response, handler);
+    }
+
+    // todo
+
+    return super.onResponse(response, handler);
+  }
+
+  bool _checkIfNeedRefreshToken(Response<dynamic> response) {
+    return true;
+    //   if (response.data == null || response.data.isEmpty) {
+    //     return false;
+    //   }
+
+    //   var responseMap =
+    //       response.data is String ? jsonDecode(response.data) : response.data;
+    //   var head = responseMap['head'];
+    //   if (head == null) {
+    //     return false;
+    //   }
+
+    //   var statusCode = head['code'];
+    //   if (statusCode != 99999 || "未发现登录用户" != responseMap['data']) {
+    //     return false;
+    //   }
+
+    //   return true;
+  }
+}

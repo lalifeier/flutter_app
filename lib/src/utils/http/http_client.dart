@@ -5,6 +5,7 @@ import 'http.dart';
 import 'http_config.dart';
 import 'http_parse.dart';
 import 'http_response.dart';
+import 'http_transformer.dart';
 
 class HttpClient {
   late Http _http;
@@ -20,12 +21,16 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        params: params,
-        method: 'GET',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      params: params,
+      method: 'GET',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> post<T>(
@@ -34,13 +39,17 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'POST',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'POST',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> put<T>(
@@ -49,13 +58,17 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'PUT',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'PUT',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> delete<T>(
@@ -64,13 +77,17 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'DELETE',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'DELETE',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> head<T>(
@@ -79,13 +96,17 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'HEAD',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'HEAD',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> patch<T>(
@@ -94,13 +115,17 @@ class HttpClient {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    HttpTransformer? httpTransformer,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'PATCH',
-        options: options,
-        cancelToken: cancelToken);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'PATCH',
+      options: options,
+      cancelToken: cancelToken,
+      httpTransformer: httpTransformer,
+    );
   }
 
   Future<HttpResponse> download<T>(
@@ -115,14 +140,17 @@ class HttpClient {
     String lengthHeader = Headers.contentLengthHeader,
   }) async {
     try {
-      Response response = await _http.download(path, savePath,
-          queryParameters: params,
-          data: data,
-          options: options,
-          cancelToken: cancelToken,
-          deleteOnError: deleteOnError,
-          onReceiveProgress: onReceiveProgress,
-          lengthHeader: lengthHeader);
+      Response response = await _http.download(
+        path,
+        savePath,
+        queryParameters: params,
+        data: data,
+        options: options,
+        cancelToken: cancelToken,
+        deleteOnError: deleteOnError,
+        onReceiveProgress: onReceiveProgress,
+        lengthHeader: lengthHeader,
+      );
       return handleResponse(response);
     } on Exception catch (e) {
       return handleException(e);
@@ -137,26 +165,28 @@ class HttpClient {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
   }) async {
-    return request(path,
-        data: data,
-        params: params,
-        method: 'POST',
-        options: options,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress);
+    return request(
+      path,
+      data: data,
+      params: params,
+      method: 'POST',
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+    );
   }
 
   Future<HttpResponse> request<T>(
     String path, {
     data,
     Map<String, dynamic>? params,
-    String? baseUrl,
     String method = 'GET',
     Map<String, dynamic>? headers,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    HttpTransformer? httpTransformer,
   }) async {
     options ??= Options();
     options.method = method;
@@ -165,19 +195,17 @@ class HttpClient {
       options.headers = headers;
     }
 
-    // if (baseUrl != null) {
-    //   _http.setBaseUrl(baseUrl);
-    // }
-
     try {
-      Response response = await _http.request(path,
-          queryParameters: params,
-          data: data,
-          options: options,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress);
-      return handleResponse(response);
+      Response response = await _http.request(
+        path,
+        queryParameters: params,
+        data: data,
+        options: options,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
+      return handleResponse(response, httpTransformer: httpTransformer);
     } on Exception catch (e) {
       return handleException(e);
     }
@@ -188,21 +216,17 @@ class HttpClient {
   }
 }
 
-BaseOptions options = BaseOptions(
-  baseUrl: Environment.baseUrl,
-  connectTimeout: Duration.millisecondsPerMinute,
-  sendTimeout: Duration.millisecondsPerMinute,
-  receiveTimeout: Duration.millisecondsPerMinute,
-  // contentType: 'application/json',
-);
+// BaseOptions options = BaseOptions(
+//   baseUrl: Environment.baseUrl,
+//   connectTimeout: Duration.millisecondsPerMinute,
+//   sendTimeout: Duration.millisecondsPerMinute,
+//   receiveTimeout: Duration.millisecondsPerMinute,
+//   // contentType: 'application/json',
+// );
 
 HttpConfig httpConfig = HttpConfig(
-  // baseUrl: '',
+  baseUrl: Environment.baseUrl,
   // proxy: 'localhost:8888',
-  logInterceptor: true,
-  cacheInterceptor: true,
-  cookieInterceptor: true,
-  retryInterceptor: true,
 );
 
-final HttpClient http = HttpClient(options: options, httpConfig: httpConfig);
+final HttpClient http = HttpClient(httpConfig: httpConfig);
