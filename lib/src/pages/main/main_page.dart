@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home/home.dart';
-import '../mine/mine.dart';
+import '../home/index.dart';
+import '../mine/index.dart';
 import 'main_controller.dart';
 
 class MainPage extends GetWidget<MainController> {

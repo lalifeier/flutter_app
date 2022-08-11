@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../routes/routes.dart';
+import '../../routes/app_pages.dart';
 
 class SplashController extends GetxController {
   // final DefaultCache defaultCache = Get.find(tag: (DefaultCache).toString());

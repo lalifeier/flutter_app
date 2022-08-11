@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/color.dart';
+import '../extension/index.dart';
 import 'app_colors.dart';
 
 class AppTheme {
@@ -9,7 +9,7 @@ class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
     // useMaterial3: true,
-    primarySwatch: createMaterialColor(AppColors.primaryColor),
+    primarySwatch: AppColors.primaryColor.materialColor,
     textTheme: GoogleFonts.robotoTextTheme(),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
@@ -19,7 +19,7 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    primarySwatch: createMaterialColor(AppColors.darkPrimaryColor),
+    primarySwatch: AppColors.darkPrimaryColor.materialColor,
     textTheme: GoogleFonts.robotoTextTheme(),
   );
 }

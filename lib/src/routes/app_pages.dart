@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
-import '../pages/home/home.dart';
-import '../pages/login/login.dart';
-import '../pages/main/main.dart';
-import '../pages/mine/mine.dart';
-import '../pages/splash/splash.dart';
-import '../pages/welcome/welcome.dart';
+import '../pages/home/index.dart';
+import '../pages/login/index.dart';
+import '../pages/main/index.dart';
+import '../pages/mine/index.dart';
+import '../pages/splash/index.dart';
+import '../pages/welcome/index.dart';
 
 part 'app_routes.dart';
 

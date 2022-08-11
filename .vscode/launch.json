@@ -7,43 +7,37 @@
     {
       "name": "flutter_app",
       "request": "launch",
-      "type": "dart",
-      "args": ["--no-sound-null-safety"]
+      "type": "dart"
     },
     {
       "name": "flutter_app (test)",
       "request": "launch",
       "type": "dart",
-      "args": ["--no-sound-null-safety"],
       "toolArgs": ["--dart-define", "APP_ENV=test"]
     },
     {
       "name": "flutter_app (staging)",
       "request": "launch",
       "type": "dart",
-      "args": ["--no-sound-null-safety"],
       "toolArgs": ["--dart-define", "APP_ENV=staging"]
     },
     {
       "name": "flutter_app (prod)",
       "request": "launch",
       "type": "dart",
-      "args": ["--no-sound-null-safety"],
       "toolArgs": ["--dart-define", "APP_ENV=production"]
+    },
+    {
+      "name": "flutter_app (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "flutter_app (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
     }
-    // {
-    //   "name": "flutter_app (profile mode)",
-    //   "request": "launch",
-    //   "type": "dart",
-    //   "flutterMode": "profile",
-    //   "args": ["--no-sound-null-safety"]
-    // },
-    // {
-    //   "name": "flutter_app (release mode)",
-    //   "request": "launch",
-    //   "type": "dart",
-    //   "flutterMode": "release",
-    //   "args": ["--no-sound-null-safety"]
-    // }
   ]
 }

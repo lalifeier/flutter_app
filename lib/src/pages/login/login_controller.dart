@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../data/local/hive/default.dart';
-import '../../routes/routes.dart';
+import '../../routes/app_pages.dart';
 import '../../utils/is.dart';
 
 class LoginController extends GetxController {
