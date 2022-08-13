@@ -9,10 +9,30 @@ class MainPage extends GetWidget<MainController> {
   const MainPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    DateTime? lastPressedAt;
+
+    return WillPopScope(
+      onWillPop: () async {
+        if (lastPressedAt == null ||
+            DateTime.now().difference(lastPressedAt!) >
+                const Duration(seconds: 1)) {
+          lastPressedAt = DateTime.now();
+
+          // Loading.toast(LocaleKeys.commonExitApp.tr);
+
+          return false;
+        }
+
+        // await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+
+        return true;
+      },
+      child: Scaffold(
         appBar: _buildAppBar(),
         body: _buildPageView(),
-        bottomNavigationBar: _buildBottomNavigationBar());
+        bottomNavigationBar: _buildBottomNavigationBar(),
+      ),
+    );
   }
 
   AppBar _buildAppBar() {
@@ -53,19 +73,3 @@ class MainPage extends GetWidget<MainController> {
     );
   }
 }
-
-
-
-// class MainWidget extends StatefulWidget {
-//   const MainWidget({Key? key}) : super(key: key);
-
-//   @override
-//   State<MainWidget> createState() => _MainWidgetState();
-// }
-
-// class _MainWidgetState extends State<MainWidget> {
-//   @override
-//   Widget build(BuildContext context) {
-
-//   }
-// }

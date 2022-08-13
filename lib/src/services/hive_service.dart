@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter_app/src/constants/constants.dart';
+import 'package:flutter_app/src/constants/index.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
@@ -24,7 +24,7 @@ class HiveService {
   }
 
   static Future _openBoxes() async {
-    await Hive.openBox(HiveConstants.DEFAULT_BOX);
+    await Hive.openBox(HiveConstants.defaultBox);
     // await Hive.openBox(HiveConstants.USER_BOX);
   }
 }

@@ -1,17 +1,17 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_app/src/models/index.dart';
 import 'package:get/get.dart';
 
-import '../../data/local/hive/default.dart';
-import '../../routes/app_pages.dart';
-import '../../utils/is.dart';
+import '../../routes/index.dart';
+import '../../services/user_service.dart';
+import '../../utils/index.dart';
 
 class LoginController extends GetxController {
-  final DefaultCache defaultCache = Get.find(tag: (DefaultCache).toString());
-
   LoginController();
 
   TextEditingController mobileController = TextEditingController();
   TextEditingController codeController = TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   RxBool isPrivacyTipChecked = false.obs;
@@ -39,19 +39,42 @@ class LoginController extends GetxController {
     String mobile = mobileController.text;
     String code = codeController.text;
 
-    print(mobile);
-    print(code);
     if (!formKey.currentState!.validate()) {
       return;
     }
 
-    Get.offAllNamed(AppRoutes.MAIN);
+    try {
+      print(mobile);
+      print(code);
+      Loading.show(text: "Logining, Please...");
+      // LoginResponse resp = await UserApi.login(LoginRequest(
+      //   username: mobile,
+      //   password: code,
+      // ));
+      // print(resp);
 
-    defaultCache.setIsLogin(true);
+      UserService.to.setToken('xxxxx');
+      UserService.to.setUserInfo(const UserInfo(username: 'xxxx'));
+
+      Get.offAllNamed(RouteNames.main);
+    } catch (e) {
+      await Loading.error(text: "Login Failed!");
+    } finally {
+      await Loading.dismiss();
+    }
+
+    // defaultCache.setIsLogin(true);
   }
 
   removePhone() {
     showClear.value = false;
     mobileController.clear();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    mobileController.dispose();
+    codeController.dispose();
   }
 }

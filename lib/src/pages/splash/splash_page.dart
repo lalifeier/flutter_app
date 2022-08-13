@@ -8,7 +8,6 @@ class SplashPage extends GetWidget<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: AppColors.primaryColor,
       body: Stack(
         children: [
           const Center(

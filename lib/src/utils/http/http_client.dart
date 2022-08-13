@@ -10,7 +10,7 @@ import 'http_transformer.dart';
 class HttpClient {
   late Http _http;
 
-  CancelToken cancelToken = CancelToken();
+  final CancelToken _cancelToken = CancelToken();
 
   HttpClient({BaseOptions? options, HttpConfig? httpConfig}) {
     _http = Http(options: options, httpConfig: httpConfig);
@@ -201,7 +201,7 @@ class HttpClient {
         queryParameters: params,
         data: data,
         options: options,
-        cancelToken: cancelToken,
+        cancelToken: cancelToken ?? _cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
@@ -212,7 +212,7 @@ class HttpClient {
   }
 
   void cancelRequests({CancelToken? token}) {
-    token ?? cancelToken.cancel("cancelled");
+    token ?? _cancelToken.cancel("cancelled");
   }
 }
 

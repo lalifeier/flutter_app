@@ -1,19 +1,29 @@
+import 'package:flutter_app/src/services/settings_service.dart';
 import 'package:get/get.dart';
 
-import '../../routes/app_pages.dart';
+import '../../routes/index.dart';
+import '../../services/user_service.dart';
 
 class SplashController extends GetxController {
-  // final DefaultCache defaultCache = Get.find(tag: (DefaultCache).toString());
-
   @override
   void onReady() async {
     super.onReady();
 
-    await Future.delayed(const Duration(seconds: 3));
+    // FlutterNativeSplash.remove();
 
-    Get.offNamed(AppRoutes.MAIN);
+    toHome();
+  }
 
-    // Get.offNamed(
-    //     await defaultCache.getIsLogin() ? AppRoutes.INDEX : AppRoutes.WELCOME);
+  void toHome() async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    if (await SettingsService.to.isFirstOpen) {
+      Get.offNamed(RouteNames.welcome);
+      return;
+    }
+
+    if (await UserService.to.checkIsLogin()) {
+      Get.offNamed(RouteNames.main);
+    }
   }
 }

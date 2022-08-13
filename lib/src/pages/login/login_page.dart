@@ -12,43 +12,42 @@ class LoginPage extends GetWidget<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    // controller.mobileController.addListener(() {
-    //   setState(() {});
-    // });
-
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('登录'),
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // const Center(
-                //   child: Text(
-                //     '登录',
-                //     style: TextStyle(
-                //       fontSize: 20,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                // ),
-                const SizedBox(height: 40),
-                const Text(
-                  '欢迎会员',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('登录'),
+        ),
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // const Center(
+                  //   child: Text(
+                  //     '登录',
+                  //     style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(height: 40),
+                  const Text(
+                    '欢迎会员',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                _buildLoginFormWidget(context),
-              ],
+                  const SizedBox(height: 15),
+                  _buildFormWidget(context),
+                ],
+              ),
             ),
           ),
         ),
@@ -56,7 +55,7 @@ class LoginPage extends GetWidget<LoginController> {
     );
   }
 
-  Widget _buildLoginFormWidget(BuildContext context) {
+  Widget _buildFormWidget(BuildContext context) {
     // return GestureDetector(
     // behavior: HitTestBehavior.translucent,
     // onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -70,7 +69,6 @@ class LoginPage extends GetWidget<LoginController> {
       child: Column(
         children: [
           TextFormField(
-            // autofocus: true,
             controller: controller.mobileController,
             decoration: InputDecoration(
               labelText:
@@ -96,9 +94,6 @@ class LoginPage extends GetWidget<LoginController> {
               LengthLimitingTextInputFormatter(11)
             ],
             validator: (v) {
-              // print('======');
-              // print(v);
-              // print('======');
               return isMobile(v!) ? null : "手机格式有误";
             },
           ),
@@ -107,8 +102,9 @@ class LoginPage extends GetWidget<LoginController> {
             children: [
               TextFormField(
                 controller: controller.codeController,
-                decoration: const InputDecoration(
-                  labelText: "验证码",
+                decoration: InputDecoration(
+                  labelText:
+                      controller.codeController.text == '' ? '请输入短信验证码' : "验证码",
                   hintText: "请输入短信验证码",
                   // contentPadding: EdgeInsets.symmetric(vertical: 20),
                   // suffixIcon: GestureDetector(

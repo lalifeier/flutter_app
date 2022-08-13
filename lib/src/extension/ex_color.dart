@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 extension ExColor on Color {
   MaterialColor get materialColor {
-    List strengths = <double>[.05];
-    Map<int, Color> swatch = {};
+    List<double> strengths = <double>[.05];
+    Map<int, Color> swatch = <int, Color>{};
     final int r = red, g = green, b = blue;
 
     for (int i = 1; i < 10; i++) {

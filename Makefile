@@ -23,7 +23,7 @@ format-analyze:
 
 # json model
 json-model:
-	flutter packages pub run json_model --src=./jsons  --dist=lib/src/models
+	flutter packages pub run json_to_model --source=./jsons  --output=lib/src/models
 
 # run dev
 run-dev:
@@ -73,6 +73,9 @@ splash-create:
 splash-remove:
 	flutter pub run flutter_native_splash:remove
 
+# flutter_launcher_icons
+launcher-icons:
+	flutter pub run flutter_launcher_icons:main
 
 help:
 	@echo ''

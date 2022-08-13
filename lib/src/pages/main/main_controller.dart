@@ -37,17 +37,11 @@ class MainController extends GetxController {
 
   void handleBottomNavigationBarTap(int index) {
     pageController.jumpToPage(index);
-    // pageController.animateToPage(
-    //   index,
-    //   duration: const Duration(milliseconds: 200),
-    //   curve: Curves.ease,
-    // );
-    // _currentPage.value = index;
   }
 
   @override
   void dispose() {
-    pageController.dispose();
     super.dispose();
+    pageController.dispose();
   }
 }

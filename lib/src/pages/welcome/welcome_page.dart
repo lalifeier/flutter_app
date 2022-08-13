@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../routes/app_pages.dart';
+import '../../routes/index.dart';
 import 'welcome_controller.dart';
 import 'widget/privacy_tip.dart';
 
@@ -44,7 +44,7 @@ class WelcomePage extends GetWidget<WelcomeController> {
                 const SizedBox(height: 20),
                 OutlinedButton(
                   onPressed: () {
-                    Get.toNamed(AppRoutes.LOGIN);
+                    Get.toNamed(RouteNames.login);
                   },
                   style: OutlinedButton.styleFrom(
                     maximumSize: const Size(double.infinity, 56),

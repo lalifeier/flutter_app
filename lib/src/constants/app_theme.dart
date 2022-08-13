@@ -7,7 +7,7 @@ import 'app_colors.dart';
 class AppTheme {
   AppTheme._();
 
-  static ThemeData lightTheme = ThemeData(
+  static ThemeData light = ThemeData(
     // useMaterial3: true,
     primarySwatch: AppColors.primaryColor.materialColor,
     textTheme: GoogleFonts.robotoTextTheme(),
@@ -18,7 +18,7 @@ class AppTheme {
     ),
   );
 
-  static final ThemeData darkTheme = ThemeData(
+  static final ThemeData dark = ThemeData(
     primarySwatch: AppColors.darkPrimaryColor.materialColor,
     textTheme: GoogleFonts.robotoTextTheme(),
   );

@@ -21,7 +21,7 @@ class Http with DioMixin implements Dio {
 
     setInterceptor(httpConfig);
 
-    // httpClientAdapter = DefaultHttpClientAdapter();
+    httpClientAdapter = DefaultHttpClientAdapter();
     // if (httpConfig?.pem?.isNotEmpty ?? false) {
     //   setHttpsCertificateVerification(httpConfig!.pem!);
     // }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../routes/app_pages.dart';
+import '../routes/index.dart';
 
 class AuthMiddleware extends GetMiddleware {
   @override
@@ -14,6 +14,6 @@ class AuthMiddleware extends GetMiddleware {
     Future.delayed(
         const Duration(seconds: 1), () => Get.snackbar("提示", "请先登录APP"));
 
-    return const RouteSettings(name: AppRoutes.LOGIN);
+    return const RouteSettings(name: RouteNames.login);
   }
 }

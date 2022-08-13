@@ -26,7 +26,6 @@ class HomePage extends GetWidget<HomeController> {
       height: 200,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
-          print('xxxx');
           return Image.network(
             controller.imgList[index],
             fit: BoxFit.cover,

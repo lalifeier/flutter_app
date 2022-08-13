@@ -1,60 +1,50 @@
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
+
+import '../constants/index.dart';
 
 class StorageService extends GetxService {
-  late final SharedPreferences _preference;
+  static StorageService get to => Get.find();
 
-  Future<StorageService> init() async {
-    _preference = await SharedPreferences.getInstance();
-    return this;
+  Box box = Hive.box(HiveConstants.defaultBox);
+
+  Future<bool> getIsFirstOpen() async {
+    return await (box).get(HiveConstants.isFirstOpenKey, defaultValue: true);
   }
 
-  String getString(String key, {String defaultValue = ""}) {
-    return _preference.getString(key) ?? defaultValue;
+  Future<void> setIsFirstOpen(bool value) async {
+    await (box).put(HiveConstants.isFirstOpenKey, value);
   }
 
-  Future<bool> setString(String key, String value) async {
-    return await _preference.setString(key, value);
+  Future<String> getTheme() async {
+    return await (box).get(HiveConstants.themeKey);
   }
 
-  int getInt(String key, {int defaultValue = 0}) {
-    return _preference.getInt(key) ?? defaultValue;
+  Future<void> setTheme(String value) async {
+    await (box).put(HiveConstants.themeKey, value);
   }
 
-  Future<bool> setInt(String key, int value) async {
-    return await _preference.setInt(key, value);
+  Future<String> getLanguage() async {
+    return await (box).get(HiveConstants.languageKey, defaultValue: '');
   }
 
-  double getDouble(String key, {double defaultValue = 0.0}) {
-    return _preference.getDouble(key) ?? defaultValue;
+  Future<void> setLanguage(String value) async {
+    await (box).put(HiveConstants.languageKey, value);
   }
 
-  Future<bool> setDouble(String key, double value) async {
-    return await _preference.setDouble(key, value);
+  Future<String> getUserInfo() async {
+    return await (box).get(HiveConstants.userInfoKey);
   }
 
-  bool getBool(String key, {bool defaultValue = false}) {
-    return _preference.getBool(key) ?? defaultValue;
+  Future<void> setUserInfo(String value) async {
+    await (box).put(HiveConstants.userInfoKey, value);
   }
 
-  Future<bool> setBool(String key, bool value) async {
-    return await _preference.setBool(key, value);
+  Future<String> getToken() async {
+    return await (box).get(HiveConstants.tokenKey, defaultValue: '');
   }
 
-  List<String> getStringList(String key,
-      {List<String> defaultValue = const []}) {
-    return _preference.getStringList(key) ?? defaultValue;
-  }
-
-  Future<bool> setStringList(String key, List<String> value) async {
-    return await _preference.setStringList(key, value);
-  }
-
-  Future<bool> remove(String key) async {
-    return await _preference.remove(key);
-  }
-
-  Future<bool> clear() async {
-    return await _preference.clear();
+  Future<void> setToken(String value) async {
+    await (box).put(HiveConstants.tokenKey, value);
   }
 }

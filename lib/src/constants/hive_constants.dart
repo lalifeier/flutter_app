@@ -1,8 +1,14 @@
 class HiveConstants {
   HiveConstants._();
 
-  static const DEFAULT_BOX = "default";
-  static const USER_BOX = "user";
+  static const defaultBox = "default";
+  static const userBox = "user";
 
-  static const IS_LOGIN_KEY = 'isLogin';
+  static const isFirstOpenKey = "isFirstOpen";
+
+  static const themeKey = 'theme';
+  static const languageKey = 'language';
+
+  static const tokenKey = 'token';
+  static const userInfoKey = 'userInfo';
 }
