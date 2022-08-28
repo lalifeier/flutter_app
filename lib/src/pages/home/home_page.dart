@@ -9,43 +9,6 @@ class HomePage extends GetWidget<HomeController> {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // return GetBuilder<MyTabController>(
-    //   init: MyTabController(),
-    //   builder: (tabx) => Scaffold(
-    //     appBar: AppBar(
-    //       backgroundColor: Colors.amber,
-    //       title: _buildSearchWidget(context),
-    //       bottom: TabBar(
-    //         controller: tabx.tabController,
-    //         isScrollable: true,
-    //         indicatorColor: Colors.white,
-    //         // indicatorSize: TabBarIndicatorSize.tab,
-    //         tabs: tabx.tabs,
-    //         // onTap: controller.switchTab,
-    //       ),
-    //     ),
-    //     body: TabBarView(
-    //       controller: tabx.tabController,
-    //       children: tabx.tabs.map((Tab tab) {
-    //         final String label = tab.text!;
-    //         if (label == "推荐") {
-    //           return Container(
-    //             child: Column(
-    //               children: [
-    //                 _buildSwiperWidget(context),
-    //               ],
-    //             ),
-    //           );
-    //         }
-    //         return Container(
-    //           alignment: Alignment.center,
-    //           child: Text(label, textScaleFactor: 1),
-    //         );
-    //       }).toList(),
-    //     ),
-    //   ),
-    // );
-
     return Obx(
       () => Scaffold(
         appBar: AppBar(
