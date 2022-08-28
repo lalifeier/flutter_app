@@ -1,4 +1,6 @@
 export 'response/login_response.dart';
+export 'response/get_super_category_response.dart';
+export 'response/get_carouse_list_response.dart';
 export 'user_info.dart';
 export 'request/login_request.dart';
 import 'package:quiver/core.dart';

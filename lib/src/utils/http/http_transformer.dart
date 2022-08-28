@@ -9,6 +9,10 @@ abstract class HttpTransformer {
 class DefaultHttpTransformer extends HttpTransformer {
   @override
   HttpResponse parse(Response response) {
+    if (response.data["code"] == null) {
+      return HttpResponse.success(response.data);
+    }
+
     if (response.data["code"] == 200) {
       return HttpResponse.success(response.data["data"]);
     } else {

@@ -19,13 +19,16 @@ class MainController extends GetxController {
 
     tabTitles = [
       '主页',
+      // '分类'
       '个人中心',
     ];
     bottomTabs = [
       const BottomNavigationBarItem(
           icon: Icon(Icons.home_outlined), label: '主页'),
+      //    const BottomNavigationBarItem(
+      // icon: Icon(Icons.category_outlined), label: '分类'),
       const BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle_outlined), label: '个人中心'),
+          icon: Icon(Icons.account_circle_outlined), label: '我的'),
     ];
 
     pageController = PageController(initialPage: currentPage);

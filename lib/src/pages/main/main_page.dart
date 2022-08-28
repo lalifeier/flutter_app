@@ -28,7 +28,7 @@ class MainPage extends GetWidget<MainController> {
         return true;
       },
       child: Scaffold(
-        appBar: _buildAppBar(),
+        // appBar: _buildAppBar(),
         body: _buildPageView(),
         bottomNavigationBar: _buildBottomNavigationBar(),
       ),

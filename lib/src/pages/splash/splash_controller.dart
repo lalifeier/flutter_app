@@ -1,4 +1,3 @@
-import 'package:flutter_app/src/services/settings_service.dart';
 import 'package:get/get.dart';
 
 import '../../routes/index.dart';
@@ -17,10 +16,10 @@ class SplashController extends GetxController {
   void toHome() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    if (await SettingsService.to.isFirstOpen) {
-      Get.offNamed(RouteNames.welcome);
-      return;
-    }
+    // if (await SettingsService.to.isFirstOpen) {
+    //   Get.offNamed(RouteNames.welcome);
+    //   return;
+    // }
 
     if (await UserService.to.checkIsLogin()) {
       Get.offNamed(RouteNames.main);

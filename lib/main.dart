@@ -58,7 +58,7 @@ Future<void> init() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // setSystemUi();
+  setSystemUi();
 
   await Environment.load();
 

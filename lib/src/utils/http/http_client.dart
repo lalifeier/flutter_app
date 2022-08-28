@@ -205,6 +205,7 @@ class HttpClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
+
       return handleResponse(response, httpTransformer: httpTransformer);
     } on Exception catch (e) {
       return handleException(e);

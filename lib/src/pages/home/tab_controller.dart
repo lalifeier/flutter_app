@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 
 // GetSingleTickerProviderStateMixin
 // GetTickerProviderStateMixin
-class HomeController extends GetxController with GetTickerProviderStateMixin {
-  final tabs = [
-    const Tab(text: 'loading...'),
-  ].obs;
+class MyTabController extends GetxController with GetTickerProviderStateMixin {
+  List<Tab> tabs = [
+    // const Tab(text: 'loading...'),
+  ];
 
-  final carouseList = [].obs;
+  // HomeController({required this.tabs});
 
   List categoryList = [];
 
@@ -24,38 +24,22 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
     asyncLoadTabs();
   }
 
-  @override
-  void onReady() async {
-    await getCarouseList();
-
-    super.onReady();
-  }
-
   void asyncLoadTabs({int index = 0}) async {
     await getSuperCategory();
 
     tabController.dispose();
     tabController =
         TabController(length: tabs.length, vsync: this, initialIndex: index);
-    // update();
-  }
-
-  // void switchTab(int index) async {
-  //   asyncLoadTabs(index: index);
-  // }
-
-  Future getCarouseList() async {
-    var resp = await TaoBaoApi.getCarouseList();
-    carouseList.value = resp.carouse;
+    update();
   }
 
   Future getSuperCategory() async {
     var resp = await TaoBaoApi.GetSuperCategory();
     categoryList = resp.categories;
 
-    tabs.value = [const Tab(text: '推荐')];
+    tabs = [const Tab(text: '推荐')];
     for (var category in resp.categories) {
-      tabs.value.add(Tab(text: category.cname));
+      tabs.add(Tab(text: category.cname));
     }
 
     print(tabs);
