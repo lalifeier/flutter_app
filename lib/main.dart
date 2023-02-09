@@ -31,17 +31,19 @@ void setSystemUi() {
     // 去除顶部系统下拉和底部系统按键
     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     // 去掉底部系统按键
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-    //     overlays: [SystemUiOverlay.bottom]);
+    // SystemChrome.setEnabledSystemUIMode(
+    //   SystemUiMode.manual,
+    //   overlays: [SystemUiOverlay.bottom],
+    // );
 
     // 自定义样式
     SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
       // 顶部状态栏颜色
-      // statusBarColor: Colors.transparent,
+      statusBarColor: Colors.transparent,
       // 该属性仅用于 iOS 设备顶部状态栏亮度
-      // statusBarBrightness: Brightness.light,
+      statusBarBrightness: Brightness.light,
       // 顶部状态栏图标的亮度
-      // statusBarIconBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.light,
 
       // 底部状态栏与主内容分割线颜色
       systemNavigationBarDividerColor: Colors.transparent,

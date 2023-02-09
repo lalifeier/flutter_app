@@ -1,17 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/apis/taobao.dart';
 import 'package:get/get.dart';
 
 // GetSingleTickerProviderStateMixin
 // GetTickerProviderStateMixin
 class HomeController extends GetxController with GetTickerProviderStateMixin {
-  final tabs = [
-    const Tab(text: 'loading...'),
-  ].obs;
+  final tabBarTitles = [
+    '热门',
+    '男装',
+    '手机',
+    '电器',
+    '汽车',
+    '百货',
+    '电脑',
+    '鞋包',
+    '食品',
+    '女装',
+    '家具',
+    '内衣',
+    '家具',
+    '内衣',
+    '家具',
+    '运动',
+    '水果',
+    '母婴',
+    '家纺',
+    '医药'
+  ];
 
-  final carouseList = [].obs;
-
-  List categoryList = [];
+  final _currentIndex = 0.obs;
+  set currentIndex(value) => _currentIndex.value = value;
+  int get currentIndex => _currentIndex.value;
 
   late TabController tabController;
 
@@ -19,24 +37,31 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   void onInit() {
     super.onInit();
 
-    tabController = TabController(length: tabs.length, vsync: this);
+    tabController = TabController(
+      initialIndex: currentIndex,
+      length: tabBarTitles.length,
+      vsync: this,
+    );
 
-    asyncLoadTabs();
+    // asyncLoadTabs();
   }
 
-  @override
-  void onReady() async {
-    await getCarouseList();
+  // @override
+  // void onReady() async {
+  //   await getCarouseList();
 
-    super.onReady();
-  }
+  //   super.onReady();
+  // }
 
   void asyncLoadTabs({int index = 0}) async {
-    await getSuperCategory();
+    // await getSuperCategory();
 
     tabController.dispose();
-    tabController =
-        TabController(length: tabs.length, vsync: this, initialIndex: index);
+    tabController = TabController(
+      length: tabBarTitles.length,
+      vsync: this,
+      initialIndex: index,
+    );
     // update();
   }
 
@@ -44,22 +69,22 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   //   asyncLoadTabs(index: index);
   // }
 
-  Future getCarouseList() async {
-    var resp = await TaoBaoApi.getCarouseList();
-    carouseList.value = resp.carouse;
-  }
+  // Future getCarouseList() async {
+  //   var resp = await TaoBaoApi.getCarouseList();
+  //   carouseList.value = resp.carouse;
+  // }
 
-  Future getSuperCategory() async {
-    var resp = await TaoBaoApi.GetSuperCategory();
-    categoryList = resp.categories;
+  // Future getSuperCategory() async {
+  //   var resp = await TaoBaoApi.GetSuperCategory();
+  //   categoryList = resp.categories;
 
-    tabs.value = [const Tab(text: '推荐')];
-    for (var category in resp.categories) {
-      tabs.value.add(Tab(text: category.cname));
-    }
+  //   tabs.value = ['推荐'];
+  //   for (var category in resp.categories) {
+  //     tabs.value.add(Tab(text: category.cname));
+  //   }
 
-    print(tabs);
-  }
+  //   print(tabs);
+  // }
 
   @override
   void dispose() {

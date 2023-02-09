@@ -69,7 +69,7 @@ dependencies:
   shared_preferences: ^2.0.15
   easy_refresh: ^3.0.4+1
   intl: ^0.17.0
-  permission_handler: ^10.0.0
+  permission_handler: ^9.2.0
   logger: ^1.1.0
   package_info_plus: ^3.0.2
   launch_review: ^3.0.1
@@ -111,6 +111,9 @@ flutter:
     - .env.test
     - .env.staging
     - .env.production
+
+    - assets/images/banner/
+    - assets/images/jingang/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

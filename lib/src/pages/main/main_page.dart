@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home/index.dart';
-import '../mine/index.dart';
+import '../../locales/index.dart';
+import '../../utils/index.dart';
 import 'main_controller.dart';
 
 class MainPage extends GetWidget<MainController> {
@@ -18,7 +18,7 @@ class MainPage extends GetWidget<MainController> {
                 const Duration(seconds: 1)) {
           lastPressedAt = DateTime.now();
 
-          // Loading.toast(LocaleKeys.commonExitApp.tr);
+          Loading.toast(LocaleKeys.commonExitApp.tr);
 
           return false;
         }
@@ -40,7 +40,7 @@ class MainPage extends GetWidget<MainController> {
       // backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      title: Obx(() => Text(controller.tabTitles[controller.currentPage])),
+      title: Obx(() => Text(controller.tabTitles[controller.currentIndex])),
       // actions: <Widget>[
       //   IconButton(
       //     icon: const Icon(Icons.search),
@@ -51,14 +51,14 @@ class MainPage extends GetWidget<MainController> {
   }
 
   Widget _buildPageView() {
-    return PageView(
+    return PageView.builder(
       controller: controller.pageController,
       physics: const NeverScrollableScrollPhysics(),
       onPageChanged: controller.handlePageChanged,
-      children: const <Widget>[
-        HomePage(),
-        MinePage(),
-      ],
+      itemCount: controller.pages.length,
+      itemBuilder: (context, index) {
+        return controller.pages[index];
+      },
     );
   }
 
@@ -66,9 +66,12 @@ class MainPage extends GetWidget<MainController> {
     return Obx(
       () => BottomNavigationBar(
         items: controller.bottomTabs,
-        currentIndex: controller.currentPage,
+        currentIndex: controller.currentIndex,
         onTap: controller.handleBottomNavigationBarTap,
         type: BottomNavigationBarType.fixed,
+        // iconSize: 24.sp,
+        // selectedFontSize: 12.sp,
+        // unselectedFontSize: 12.sp,
       ),
     );
   }

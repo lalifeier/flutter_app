@@ -4,6 +4,10 @@
 install:
 	flutter pub get
 
+# outdated
+outdated:
+	flutter pub outdated
+
 # upgrade
 upgrade:
 	flutter pub upgrade --major-versions
