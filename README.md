@@ -2,7 +2,26 @@
 
 A new Flutter project.
 
-## Environment
+## 技术栈
+
+- [Flutter](https://docs.flutter.dev/)
+- [GetX](https://github.com/jonataslaw/getx)
+- [cupertino_icons](https://pub.dev/packages/cupertino_icons)
+- [flutter_screenutil](https://github.com/OpenFlutter/flutter_screenutil)
+- [responsive_framework](https://github.com/Codelessly/ResponsiveFramework)
+- [card_swiper](https://github.com/TheAnkurPanchani/card_swiper)
+- [easy_refresh](https://github.com/xuelongqy/flutter_easy_refresh)
+- [flutter_spinkit](https://github.com/jogboms/flutter_spinkit)
+- [flutter_datetime_picker]()
+- [dio](https://github.com/flutterchina/dio)
+- [flutter_dotenv](https://github.com/java-james/flutter_dotenv)
+- [hive](https://github.com/hivedb/hive)
+- [convert](https://github.com/dart-lang/convert)
+- [crypto](https://github.com/dart-lang/crypto)
+- [video_player](https://pub.dev/packages/video_player)
+- [permission_handler](https://github.com/baseflow/flutter-permission-handler)
+
+## 环境
 
 ### proxy
 
@@ -21,7 +40,7 @@ maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
 maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
 ```
 
-## Tool
+## 工具
 
 ### getx
 
