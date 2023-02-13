@@ -23,17 +23,37 @@ A new Flutter project.
 
 ## 环境
 
-### proxy
+### 国内源
 
-```js
-# android/build.gradle
+####
+
+```bash
+cat >> ~/.zshrc <<EOF
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+EOF
+```
+
+#### 修改 flutter 的 gradle 配置
+
+```bash
+# vim /usr/local/flutter/packages/flutter_tools/gradle/flutter.gradle
+# 修改buildscript下
 // google()
 // mavenCentral()
 maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
 maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
 
-# flutter sdk
-# /usr/local/flutter/packages/flutter_tools/gradle/flutter.gradle
+# 修改FlutterPlugin下
+// private static final String DEFAULT_MAVEN_HOST = "https://storage.googleapis.com";
+private static final String DEFAULT_MAVEN_HOST = "https://storage.flutter-io.cn/download.flutter.io";
+```
+
+#### 修改 项目 的 gradle 配置
+
+```bash
+# vim android/build.gradle
+# 修改buildscript下
 // google()
 // mavenCentral()
 maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
