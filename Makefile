@@ -61,6 +61,14 @@ build-ios-dev:
 build-ios-prod:
 	flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
+# build web dev
+build-web-dev:
+	flutter build web --dart-define=APP_ENV=development --target lib/main.dart
+
+# build web prod
+build-web-prod:
+	flutter build web --release --web-renderer html --dart-define=FLAVOR=production --target lib/main.dart
+
 # unit test
 unit-test:
 	flutter test --coverage --coverage-path=./coverage/lcov.info
