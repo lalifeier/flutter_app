@@ -67,7 +67,7 @@ dependencies:
   card_swiper: ^2.0.4
   flutter_screenutil: ^5.5.3+2
   shared_preferences: ^2.0.15
-  easy_refresh: ^3.0.4+1
+  easy_refresh: ^3.3.1
   intl: ^0.17.0
   permission_handler: ^10.2.0
   logger: ^1.1.0
