@@ -269,34 +269,34 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: "7d328c4d898a61efc3cd93655a0955858e29a0aa647f0f9e02d59b3bb275e2e8"
+      sha256: "3709d74615bba5e443eb141f6a7f4bcc4788f8fae6f743edadfb79c2a8e6287e"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.0.6"
+    version: "5.0.1"
   dio_cache_interceptor:
     dependency: "direct main"
     description:
       name: dio_cache_interceptor
-      sha256: "3f76df600621f3a8ed9c57db053f602b24c7e64c108fbc2791d0fe779c52b45b"
+      sha256: "24f5fb2fbffea25325e9eabc1501b6582d0928b0ef5cb9127c920e58fbf6ca62"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.3.1"
+    version: "3.4.0"
   dio_cookie_manager:
     dependency: "direct main"
     description:
       name: dio_cookie_manager
-      sha256: ed7ee3ba6cdb54599c8984d5a4ce09675c553ead6c28608eb54e38eec5b4f954
+      sha256: b9552ab77e361acd56e00671a3fd424abe8447aa0a14b68bec55833351d139b4
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.1"
   dio_smart_retry:
     dependency: "direct main"
     description:
       name: dio_smart_retry
-      sha256: "7c008542f7a5c5552a0757c7cd0e8c7b3131617120ee3e48456425f673f8ff09"
+      sha256: "1a2d0cf73ab56bf5998b375cda2d51f45c77268e712e4073f232cdc7753a94b2"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.4.0"
+    version: "5.0.0"
   easy_refresh:
     dependency: "direct main"
     description:
@@ -386,10 +386,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_launcher_icons
-      sha256: ce0e501cfc258907842238e4ca605e74b7fd1cdf04b3b43e86c43f3e40a1592c
+      sha256: "02dcaf49d405f652b7160e882bacfc02cb497041bb2eab2a49b1c393cf9aac12"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.11.0"
+    version: "0.12.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -407,10 +407,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: "6777a3abb974021a39b5fdd2d46a03ca390e03903b6351f21d10e7ecc969f12d"
+      sha256: "048bd1f1dc0e5ea25899f702815934d9a9e916fe23451c320e7dd94d5e3ad933"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.2.16"
+    version: "2.2.17"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -545,10 +545,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "8e9d133755c3e84c73288363e6343157c383a0c6c56fc51afcc5d4d7180306d6"
+      sha256: "483a389d6ccb292b570c31b3a193779b1b0178e7eb571986d9a49904b6861227"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.3.0"
+    version: "4.0.15"
   intl:
     dependency: "direct main"
     description:
