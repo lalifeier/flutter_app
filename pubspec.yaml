@@ -39,7 +39,7 @@ dependencies:
   dio_cache_interceptor: ^3.3.0
   connectivity_plus: ^3.0.2
   cookie_jar: ^3.0.1
-  dio_cookie_manager: ^2.0.0
+  dio_cookie_manager: ^2.1.4
   dio_smart_retry: ^5.0.0
   flutter_dotenv: ^5.0.2
   get: ^4.6.5
